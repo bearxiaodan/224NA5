@@ -151,7 +151,7 @@ class VocabEntry(object):
 
         @returns sents_var: tensor of (max_sentence_length, batch_size, max_word_length)
         """
-        word_char=self.word2charindices(sents)
+        word_char=self.words2charindices(sents)
         sent_pad=pad_sents_char(word_char, self.char2id['<pad>'])
         svr=torch.tensor(sent_pad, dtype=torch.long, device=device)
         new_svr=svr.permute(1, 0, 2)
